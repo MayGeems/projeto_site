@@ -24,6 +24,14 @@ app.get('/usuarios', function(req, res){
     ]});
 });
 
+app.get('/add', function(req, res){
+    res.render('add.ejs');
+});
+
+app.post('/add', function(req, res){
+    console.log('Nome: '+req.body.nome +"E-mail: "+req.body.email);
+});
+
 app.listen(3000, function(){
     console.log("Conexão inicializada.");
 });
