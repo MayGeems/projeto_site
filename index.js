@@ -72,6 +72,12 @@ app.post('/edt/:id', function(req, res){
         });
 });
 
+app.post('/', function(req, res){
+    Usuario.find({nome: new RegExp(req.body.pesquisa, 'gi')}).exec(function(err, docs){
+        res.render('index.ejs', {Usuarios: docs});
+    });
+});
+
 app.listen(3000, function(){
     console.log("Conexão inicializada.");
 });
