@@ -26,6 +26,7 @@
             <th>E-mail</th>
             <th>Foto</th>
             <th>Deletar</th>
+            <th>Editar</th>
         </tr>
         <%for(usuario of Usuarios){%>
         <tr>
@@ -34,7 +35,10 @@
             <td><%=usuario.email%></td>
             <td><%=usuario.foto%></td>
             <td>
-                <a href="/del/><%=usuario._id:String. in%>">Deletar</a>
+                <a href="/del/<%=usuario._id%>">Deletar</a>
+            </td>
+            <td>
+                <a href="/edt/<%=usuario._id%>">Editar</a>
             </td>
         </tr>
         <% } %>

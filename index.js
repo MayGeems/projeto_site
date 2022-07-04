@@ -51,6 +51,27 @@ app.get('/del/:id', function(req, res){
     console.log(req.params.id);
 });
 
+app.get('/edt/:id', function(req, res){
+    Usuario.findById(req.params.id, function(err, docs){
+        if(err){
+            console.log(err);
+        }else {
+            res.render('edt.ejs', {Usuario: docs});  
+        }  
+    });
+});
+
+app.post('/edt/:id', function(req, res){
+    Usuario.findByIdAndUpdate(req.params.id, 
+        {nome: req.body.nome, 
+         email: req.body.email, 
+         senha: req.body.senha, 
+         foto:req.body.foto
+        }, function(err, docs){
+            res.redirect('/');
+        });
+});
+
 app.listen(3000, function(){
     console.log("Conexão inicializada.");
 });
