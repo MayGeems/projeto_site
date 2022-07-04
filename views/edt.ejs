@@ -1,5 +1,5 @@
 <%-include('cabecalho.ejs')%>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         ID: <input type="text" name="id" readonly value="<%=Usuario._id%>"/><br>
         Nome: <input type="text" name="nome" placeholder="Digite seu nome." value="<%=Usuario.nome>"/><br>
         Email: <input type="text" name="email" placeholder="Digite seu e-mail." value="<%=Usuario.email>"/><br>

@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require("cookie-parser");
 var path = require("path");
 var Usuario = require("./model/usuario.js");
+var upload = require("./config/configMulter.js");
 
 app.use(cookieParser());
 
@@ -24,12 +25,12 @@ app.get('/add', function(req, res){
     res.render('add.ejs');
 });
 
-app.post('/add', function(req, res){
+app.post('/add', upload.single("foto"), function(req, res){
     var usuario = new Usuario({
         nome: req.body.nome,
         email: req.body.email,
         senha: req.body.senha,
-        foto: req.body.foto
+        foto: req.file.filename
     });
     usuario.save(function(err){
         if(err){
@@ -61,12 +62,12 @@ app.get('/edt/:id', function(req, res){
     });
 });
 
-app.post('/edt/:id', function(req, res){
+app.post('/edt/:id', upload.single("foto"),function(req, res){
     Usuario.findByIdAndUpdate(req.params.id, 
         {nome: req.body.nome, 
          email: req.body.email, 
          senha: req.body.senha, 
-         foto:req.body.foto
+         foto:req.file.filename
         }, function(err, docs){
             res.redirect('/');
         });
