@@ -3,6 +3,7 @@ const app = express();
 var bodyParser = require('body-parser');
 var cookieParser = require("cookie-parser");
 var path = require("path");
+var Usuario = require("./model/usuario.js");
 
 app.use(cookieParser());
 
@@ -17,19 +18,24 @@ app.get('/', function(req, res){
     res.render("index.ejs", {});
 });
 
-app.get('/usuarios', function(req, res){
-    res.render('usuarios.ejs', {usuarios:[
-        {nome: 'Mayra', email:'mayrageovanna602@gmail.com'},
-        {nome: 'Diego', email:'dapporcellis@hotmail.com'}
-    ]});
-});
-
 app.get('/add', function(req, res){
     res.render('add.ejs');
 });
 
 app.post('/add', function(req, res){
-    console.log('Nome: '+req.body.nome +"E-mail: "+req.body.email);
+    var usuario = new Usuario({
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: req.body.senha,
+        foto: req.body.foto
+    });
+    usuario.save(function(err){
+        if(err){
+            console.log("ERR");
+        }else{
+            res.redirect('/');
+        }
+    });
 });
 
 app.listen(3000, function(){
