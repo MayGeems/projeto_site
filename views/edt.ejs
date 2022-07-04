@@ -1,12 +1,12 @@
 <%-include('cabecalho.ejs')%>
     <form method="post" enctype="multipart/form-data">
-        ID: <input type="text" name="id" readonly value="<%=Usuario._id%>"/><br>
-        Nome: <input type="text" name="nome" placeholder="Digite seu nome." value="<%=Usuario.nome>"/><br>
-        Email: <input type="text" name="email" placeholder="Digite seu e-mail." value="<%=Usuario.email>"/><br>
-        Senha: <input type="password" name="senha" placeholder="Crie uma senha para cadastro" value="<%=Usuario.senha>"/><br>
-        Exp_trabalho: <input type="number" name="exp_trabalho" placeholder="Digite seu tempo de experiência com arte"/><br>
-        DataNasc: <input type="date" name="datanasc" placeholder="Digite sua data de nascimento"/><br>
-        Foto: <input type="file" name="foto"/><br>
+        ID: <input type="text" name="id" value="<%=Usuario._id%>" readonly/><br>
+        Nome: <input type="text" name="nome" placeholder="Digite seu nome." value="<%=Usuario.nome%>"/><br>
+        Email: <input type="text" name="email" placeholder="Digite seu e-mail." value="<%=Usuario.email%>"/><br>
+        Senha: <input type="password" name="senha" placeholder="Crie uma senha para cadastro" value="<%=Usuario.senha%>"/><br>
+        Tempo de experiência com arte (em meses): <input type="number" name="exp_trabalho" placeholder="Digite seu tempo de experiência com arte" value="<%=Usuario.exp_trabalho%>"/><br>
+        Data de nascimento <input type="date" name="datanasc" placeholder="Digite sua data de nascimento" value="<%=Usuario.datanasc%>" /><br>
+        Foto: <input type="file" name="foto" accept="image/*" /><br>
         
         <input type="submit" value="Confirmar"/>
     </form>

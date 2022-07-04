@@ -1,7 +1,6 @@
 #tudo{
     width:1024px;
     margin:0 auto;
-    
 }
 table{
     border-collapse: separete;
@@ -22,7 +21,8 @@ input[type="submit"]{
     min-width:207px
 }
 .fotos{
-    max-width: 25px;
+    max-width: auto;
+    max-height: 10px;
     margin-left: 10px;
 }
 .pesquisa{
