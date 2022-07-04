@@ -30,6 +30,8 @@ app.post('/add', upload.single("foto"), function(req, res){
         nome: req.body.nome,
         email: req.body.email,
         senha: req.body.senha,
+        exp_trabalho: req.body.exp_trabalho,
+        datanasc: req.body.datanasc,
         foto: req.file.filename
     });
     usuario.save(function(err){
@@ -67,6 +69,8 @@ app.post('/edt/:id', upload.single("foto"),function(req, res){
         {nome: req.body.nome, 
          email: req.body.email, 
          senha: req.body.senha, 
+         exp_trabalho: req.body.exp_trabalho,
+         datanasc: req.body.datanasc,
          foto:req.file.filename
         }, function(err, docs){
             res.redirect('/');

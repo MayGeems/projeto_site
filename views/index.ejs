@@ -4,6 +4,8 @@
             <th>ID</th>
             <th>Nome</th>
             <th>E-mail</th>
+            <th>Tempo de expêriencia</th>
+            <th>Data de nascimento</th>
             <th>Foto</th>
             <th>Deletar</th>
             <th>Editar</th>
@@ -13,6 +15,8 @@
             <td><%=usuario._id%></td>
             <td><%=usuario.nome%></td>
             <td><%=usuario.email%></td>
+            <td><%=usuario.exp_trabalho%></td>
+            <td><%=usuario.datanasc%></td>
             <td><img class="foto" src="/fotos/<%=usuario.foto%>"/></td>
             <td>
                 <a href="/del/<%=usuario._id%>">Deletar</a>
