@@ -19,10 +19,11 @@
             <td><%=usuario.datanasc%></td>
             <td><img class="foto" src="/fotos/<%=usuario.foto%>"/></td>
             <td>
-                <a href="/del/<%=usuario._id%>">Deletar</a>
+                <a href="/del/<%=usuario._id%>"><img class="img-responsive" src="/lixeira.png" alt="Deletar"></a>
+
             </td>
             <td>
-                <a href="/edt/<%=usuario._id%>">Editar</a>
+                <a href="/edt/<%=usuario._id%>"><img class="img-responsive" src="/editar.png" alt="Editar"></a>
             </td>
         </tr>
         <% } %>
